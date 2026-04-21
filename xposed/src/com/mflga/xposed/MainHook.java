@@ -16,13 +16,41 @@ public class MainHook implements IXposedHookLoadPackage {
         "com.lerist.fakelocation", "dev.lerist.fakelocation",
         "com.lerist.fakelocation.common.xposed"
     };
+    // No hardcoded targets - LSPosed scope decides who gets hooked.
+    // Skip only known system/FL packages that must NOT be hooked.
+    private static final String[] SKIP = {
+        "android",
+        "com.lerist.fakelocation",
+        "com.lerist.fakelocation.common.xposed"
+    };
+
     @Override
     public void handleLoadPackage(XC_LoadPackage.LoadPackageParam lpparam) throws Throwable {
-        if ("android".equals(lpparam.packageName)) {
+        String pkg = lpparam.packageName;
+
+        // system_server: only do blacklist hook
+        if ("android".equals(pkg)) {
             hookAndroidProcess(lpparam);
-        } else {
-            hookTargetApp(lpparam);
+            return;
         }
+
+        // Skip FL itself
+        for (String s : SKIP) {
+            if (s.equals(pkg)) return;
+        }
+        // Skip system_server sub-packages: they have no appInfo or share system UID
+        // Real target apps always have appInfo set by Zygote
+        try {
+            if (lpparam.appInfo == null) return;
+            // Check if this is actually a user app (not system_server internal)
+            int uid = ((android.content.pm.ApplicationInfo) lpparam.appInfo).uid;
+            if (uid < 10000) return; // System UIDs are < 10000
+        } catch (Throwable t) {
+            return; // If we can't determine, skip to be safe
+        }
+
+        // Everything else: apply detection hiding (controlled by LSPosed scope)
+        hookTargetApp(lpparam);
     }
 
     // ================================================================

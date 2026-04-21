@@ -18,6 +18,9 @@ detector/build/
 # Keystores
 *.keystore
 
+# Temporary/check files
+mflga_check.apk
+
 # Temporary files
 *.zip
 *.tmp
