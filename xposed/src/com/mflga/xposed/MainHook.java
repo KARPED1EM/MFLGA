@@ -18,7 +18,7 @@ public class MainHook implements IXposedHookLoadPackage {
         "com.lerist.fakelocation.common.xposed"
     };
     private static final String[] TARGETS = {
-        "com.ss.android.lark", "com.metabrain.cn", "com.mflga.detector"
+        "com.ss.android.lark", "com.mflga.detector"
     };
 
     @Override

@@ -60,7 +60,6 @@ Currently targets:
 
 - `android` (system_server — for blacklist neutralization)
 - `com.ss.android.lark` (Lark / Feishu)
-- `com.metabrain.cn` (MetaBrain)
 - `com.mflga.detector` (built-in test app)
 
 To add more apps, update the `TARGETS` array in `MainHook.java` and the scope list in `xposed/res/values/arrays.xml`.
