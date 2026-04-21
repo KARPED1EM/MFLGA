@@ -1,0 +1,6 @@
+id=mflga_fs_hide
+name=MFLGA FS Hide
+version=1.0
+versionCode=1
+author=mflga
+description=MFLGA - Hide FakeLocation data directory from apps

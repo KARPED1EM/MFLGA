@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="xposed_scope">
+        <item>android</item>
+        <item>com.ss.android.lark</item>
+        <item>com.metabrain.cn</item>
+        <item>com.mflga.detector</item>
+    </string-array>
+</resources>

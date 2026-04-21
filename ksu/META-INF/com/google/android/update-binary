@@ -1,0 +1,13 @@
+#!/sbin/sh
+TMPDIR=/dev/tmp
+rm -rf $TMPDIR
+mkdir -p $TMPDIR
+unzip -o "$3" -d $TMPDIR
+INSTALLER=$TMPDIR
+. $INSTALLER/util_functions.sh 2>/dev/null
+MODPATH=$NVBASE/modules/$MODID
+rm -rf $MODPATH
+mkdir -p $MODPATH
+cp -af $INSTALLER/module.prop $MODPATH/
+cp -af $INSTALLER/service.sh $MODPATH/
+set_perm $MODPATH/service.sh 0 0 0755
