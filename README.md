@@ -2,7 +2,7 @@
 
 **Make Fake Location Great Again**
 
-An Xposed/LSPosed module that removes [FakeLocation](https://github.com/AnyListen/FakeLocation)'s built-in blacklist and hides all detection vectors from target apps.
+An Xposed/LSPosed module that removes [FakeLocation](https://fakeloc.cc/app)'s built-in blacklist and hides all detection vectors from target apps.
 
 ## How It Works
 
