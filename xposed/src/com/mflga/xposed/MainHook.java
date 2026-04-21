@@ -11,27 +11,17 @@ import java.util.ArrayList;
 
 public class MainHook implements IXposedHookLoadPackage {
 
-    private static final String[] UNBLOCK = {"com.ss.android.lark"};
     private static final String[] FL_SVC = {"service_fl_", "service_mock_location"};
     private static final String[] FL_PKG = {
         "com.lerist.fakelocation", "dev.lerist.fakelocation",
         "com.lerist.fakelocation.common.xposed"
     };
-    private static final String[] TARGETS = {
-        "com.ss.android.lark", "com.mflga.detector"
-    };
-
     @Override
     public void handleLoadPackage(XC_LoadPackage.LoadPackageParam lpparam) throws Throwable {
         if ("android".equals(lpparam.packageName)) {
             hookAndroidProcess(lpparam);
-            return;
-        }
-        for (String t : TARGETS) {
-            if (t.equals(lpparam.packageName)) {
-                hookTargetApp(lpparam);
-                return;
-            }
+        } else {
+            hookTargetApp(lpparam);
         }
     }
 

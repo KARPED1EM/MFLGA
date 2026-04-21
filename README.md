@@ -56,13 +56,11 @@ This project uses manual compilation (no Gradle). You need:
 
 ## Scope
 
-Currently targets:
+The module works for **any app** you enable in LSPosed's scope UI — no code changes needed. Just check the app and reboot.
 
-- `android` (system_server — for blacklist neutralization)
-- `com.ss.android.lark` (Lark / Feishu)
-- `com.mflga.detector` (built-in test app)
+`android` (system_server) must always be enabled for blacklist neutralization.
 
-To add more apps, update the `TARGETS` array in `MainHook.java` and the scope list in `xposed/res/values/arrays.xml`.
+Recommended scope is pre-configured in `xposed/res/values/arrays.xml`.
 
 ## License
 
