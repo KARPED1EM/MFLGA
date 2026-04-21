@@ -1,14 +1,14 @@
-# FakeLocation v1.5.0 (build 1700) 内置黑名单
-# 来源: /data/fl/2da3c574.s -> classes.dex -> C0011 类, XOR 解密
-# 共 207 个包名
+# FakeLocation v1.5.0 (build 1700) built-in blacklist
+# Source: /data/fl/2da3c574.s -> classes.dex -> class C0011, XOR decrypted
+# Total: 207 package names
 #
-# 主要类别:
-#   - 矫正/司法类 App
-#   - 网约车/出行司机端
-#   - 外卖/跑腿/物流骑手端
-#   - 企业办公/考勤类 (钉钉、飞书、企业微信等)
-#   - 运动/健身类 (Keep 等)
-#   - 位置敏感类游戏/App
+# Categories:
+#   - Corrections / judicial supervision apps
+#   - Ride-hailing / driver-side apps
+#   - Food delivery / courier / logistics rider apps
+#   - Enterprise / attendance apps (DingTalk, Lark, WeCom, etc.)
+#   - Fitness / sports apps (Keep, etc.)
+#   - Location-sensitive games / apps
 
 com.srit.swork.views
 com.sqjz
