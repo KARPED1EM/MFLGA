@@ -38,18 +38,9 @@ public class MainHook implements IXposedHookLoadPackage {
         for (String s : SKIP) {
             if (s.equals(pkg)) return;
         }
-        // Skip system_server sub-packages: they have no appInfo or share system UID
-        // Real target apps always have appInfo set by Zygote
-        try {
-            if (lpparam.appInfo == null) return;
-            // Check if this is actually a user app (not system_server internal)
-            int uid = ((android.content.pm.ApplicationInfo) lpparam.appInfo).uid;
-            if (uid < 10000) return; // System UIDs are < 10000
-        } catch (Throwable t) {
-            return; // If we can't determine, skip to be safe
-        }
+        // system_server sub-packages have UID 1000; real apps have UID >= 10000
+        if (android.os.Process.myUid() < 10000) return;
 
-        // Everything else: apply detection hiding (controlled by LSPosed scope)
         hookTargetApp(lpparam);
     }
 
